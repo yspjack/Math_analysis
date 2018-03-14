@@ -1,0 +1,367 @@
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% Custom begin.
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\du}{\,\mathrm{d}u}
+\renewcommand{\qedsymbol}{}
+\renewcommand{\proofname}{\hspace{2em}\textbf{证:}}
+\newenvironment{solution}{\begin{proof}[\hspace{2em}\textbf{解:}]}{\end{proof}}
+\theoremstyle{definition}% default
+\newtheorem{exercise}{\hspace{2em}例题}
+% Custom end.
+\title{第十一章}
+\author{数项级数}
+\begin{document}
+\maketitle
+\newpage
+\begin{exercise}
+	$\displaystyle
+	\sum\limits_{n=1}^{\infty}\dfrac{n^{n+\frac{1}{n}}}{(n+\frac{1}{n})^n}$
+\end{exercise}
+\begin{solution}
+	$\displaystyle u_n
+	=\dfrac{n^n \cdot n^{\frac{1}{n}}}{(n+\frac{1}{n})^n}
+	=\dfrac{n^{\frac{1}{n}}}{(1+\frac{1}{n^2})^n}$\\
+	
+	$ \because \lim\limits_{n \to \infty}(1+\dfrac{1}{n^2})^n
+	=\lim\limits_{n \to \infty}[(1+\dfrac{1}{n^2})^{n^2}]^{\frac{1}{n}}
+	=e^0=1 $\\
+	
+	$ \lim\limits_{n \to \infty}n^{\frac{1}{n}}=1 $\\
+	
+	$ \lim\limits_{n \to \infty}u_n=1 \ne 0 $, 原级数发散
+\end{solution}
+\begin{exercise}
+	$ \displaystyle
+	\sum_{n=1}^{\infty}\dfrac{n\cos^2\frac{n\pi}{2}}{2^n} $
+\end{exercise}
+\begin{solution}
+	$ u_n=\dfrac{n\cos^2\frac{n\pi}{3}}{2^n}<\dfrac{n}{2^n} $, 令$ v_n=\dfrac{n}{2^n} $\\
+	
+	$ \because \lim\limits_{n \to \infty}\dfrac{v_{n+1}}{v_n}
+	=\lim\limits_{n \to \infty}\dfrac{n+1}{2^{n+1}}
+	=\lim\limits_{n \to \infty}\dfrac{n+1}{2n}
+	=\dfrac{1}{2}<1 $\\
+	
+	$ \therefore\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{2^n} $收敛.由比较判别法, 原级数收敛.
+\end{solution}
+\begin{exercise}
+	$ \displaystyle
+	\sum_{n=2}^{\infty}\dfrac{1}{n \ln^p n} $
+\end{exercise}
+\begin{solution}
+	$ \displaystyle\int_{2}^{+\infty} \dfrac{1}{x \ln^p x}\dx
+	=\int_{2}^{+\infty}\dfrac{1}{\ln^p x} \mathrm{d}(\ln x) $\\
+	
+	$ p>1 $ 收敛, $ p \le 1 $ 发散.
+\end{solution}
+\begin{exercise}
+	$\{x_n\}$是单调增加有界的正值数列, 证明 $\displaystyle\sum_{n=1}^{\infty}(1-\dfrac{x_n}{x_{n+1}})$ 收敛.
+\end{exercise}
+\begin{proof}
+	$ (1-\dfrac{x_n}{x_{n+1}})
+	=\dfrac{(x_{n+1}-x_n)}{x_{n+1}}
+	\le\dfrac{(x_{n+1}-x_n)}{x_1} $\\
+	
+	$ \because\{x_n\} $ 单调有界, 上界为 $ M $.\\
+	
+	$ \therefore x_{n+1}>x_n $, $\forall n \in \mathbb{N}^*$ 有 $ 0 < x_n \le M $\\
+	
+	$\displaystyle\sum_{n=1}^{\infty}\left( 1-\dfrac{x_n}{x_{n+1}} \right)
+	< \sum_{n=1}^{\infty}\dfrac{x_{n+1}-x_n}{x_1}
+	= \lim\limits_{n \to \infty}\left( \dfrac{x_{n+1}-x_1}{x_1} \right) $
+\end{proof}
+
+\begin{exercise}
+	$\displaystyle\sum_{n=1}^{\infty}(-1)^n [\dfrac{(2n-1)!!}{(2n)!!}]$, p为常数
+\end{exercise}
+\begin{solution}
+	$ \dfrac{1}{\sqrt{n}}<\dfrac{(2n-1)!!}{(2n)!!}<\dfrac{1}{\sqrt{2n+1}} $\\
+	
+	$ [\dfrac{1}{2\sqrt{n}}]^p<\dfrac{(2n-1)!!}{(2n)!!}<[\dfrac{1}{\sqrt{2n+1}}]^p $\\
+	
+	$ p>2 $时, 级数绝对收敛\\
+	$ 0 \le p<2 $时, 级数条件收敛
+\end{solution}
+
+\begin{exercise}
+	设$f(x)$在$x=0$的某邻域内有连续二阶导数, 且$\lim\limits_{x \to 0}\dfrac{f(x)}{x}=0$. 证明$\displaystyle\sum_{n=1}^{\infty}f(\frac{1}{n})$绝对收敛.
+\end{exercise}
+
+
+\begin{exercise}
+	设$ x_1=1 $, $ x_{n+1}=x_n+x_n^2 $, 证明$ \displaystyle\sum_{n=1}^{\infty}\dfrac{1}{x_n} $收敛
+\end{exercise}
+\begin{proof}
+	$ x_{n+1}=x_n+x_n^2 \Rightarrow x_{n+1}=x_n(1+x_n) $\\
+	
+	$ \Rightarrow \dfrac{1}{x_{n+1}}=\dfrac{1}{x_n}-\dfrac{1}{1+x_n} $\\
+	
+	$ \Rightarrow \dfrac{1}{1+x_n}=\dfrac{1}{x_n}-\dfrac{1}{x_{n+1}} $\\
+	
+	$ \displaystyle S_n=\sum_{k=1}^{n}\dfrac{1}{1+x_k}
+	=\sum_{k=1}^{n}(\dfrac{1}{x_k}-\dfrac{1}{x_{k+1}})
+	=1-\dfrac{1}{x_{n+1}} $\\
+	
+	$ x_{n+1}=x_n+x_n^2 \Rightarrow x_{n+1}>x_n \ge 1 $
+\end{proof}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{\ln(n!)}{n^\alpha} $
+\end{exercise}
+\begin{solution}
+	(1)$ \alpha \le 0 $, $ \dfrac{\ln(n!)}{n^\alpha} \rightarrow \infty $发散\\
+	
+	(2)$ 0<\alpha \le 2 $,$ \dfrac{\ln(n!)}{n^\alpha} \ge \dfrac{(n-1)\ln 2}{n^\alpha} \ge \dfrac{\ln 2}{n} $发散\\
+	
+	(3)$ \alpha>2 $,$ \dfrac{\ln(n!)}{n^\alpha}<\dfrac{n\ln n}{n^\alpha}=\dfrac{\ln n}{n^{\alpha-1}} $\\
+	
+	取$ \alpha-1>r>1 $, $ \dfrac{\ln n}{n^{\alpha-1}}=\dfrac{\ln n}{n^{\alpha-1-r}}\dfrac{1}{n^r} \le \dfrac{1}{n^r} $收敛
+\end{solution}
+\begin{exercise}
+	内容...
+\end{exercise}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\left( n^{\frac{1}{n^2+1}}-1 \right) $
+\end{exercise}
+\begin{solution}
+	$$ \displaystyle n^{\frac{1}{n^2+1}}-1
+	=e^{\frac{\ln n}{n^2+1}}-1
+	\approx \dfrac{\ln n}{n^2+1}
+	\le \dfrac{\ln n}{n^{\frac{1}{2}}}\dfrac{1}{n^{\frac{3}{2}}}$$
+\end{solution}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty} (\sqrt{n+1}-\sqrt{n})^{\frac{1}{2}}\ln\dfrac{n+1}{n-1} $
+\end{exercise}
+\begin{solution}
+	$ (\sqrt{n+1}-\sqrt{n})^{\frac{1}{2}}
+	=\dfrac{1}{(\sqrt{n+1}+\sqrt{n})^{\frac{1}{2}}} $\\
+
+	$ \ln\dfrac{n+1}{n-1}
+	=\ln(1+\dfrac{2}{n-1})
+	\approx\dfrac{2}{n-1} $
+	
+	\begin{equation*}
+	\lim\limits_{n \to \infty}\dfrac{(\sqrt{n+1}-\sqrt{n})^{\frac{1}{2}}\ln\dfrac{n+1}{n-1}}{n^{\frac{5}{4}}}
+	=\lim\limits_{n \to \infty}\dfrac{(\sqrt{n+1}-\sqrt{n})^{\frac{1}{2}}}{n^{\frac{1}{4}}}
+	\lim\limits_{n \to \infty}\dfrac{\ln\dfrac{n+1}{n-1}}{n}
+	=\sqrt{2}
+	\end{equation*} 
+	
+	收敛
+\end{solution}
+\begin{exercise}
+	$ f(x) $为偶函数, 在$x=0$的某邻域内有连续二阶导数, 且$ f(0)=1 $,$ f''(0)=2 $,证明$ \displaystyle\sum_{n=1}^{\infty} |f(\frac{1}{n})-1|$收敛
+\end{exercise}
+\begin{solution}
+	$ f(\dfrac{1}{n})=f(0)+f'(0)\dfrac{1}{n}+\dfrac{1}{2}f''(\xi)\dfrac{1}{n^2} $,$ \xi \in (0,\dfrac{1}{n}) $\\
+	
+	$ f(0)=1,f''(0)=2,f'(0)=0 $\\
+	
+	$ \left|f(\dfrac{1}{n})-1\right|
+	=\dfrac{1}{2n^2}f''(\xi) $\\
+	
+	$ \Rightarrow \lim\limits_{n \to \infty}\dfrac{|f(\dfrac{1}{n})|}{\dfrac{1}{n^2}}
+	=\lim\limits_{n \to \infty}\dfrac{1}{2}f''(\xi)=1 $\\
+	
+	$ \therefore\displaystyle\sum_{n=1}^{\infty} |f(\frac{1}{n})-1|$收敛
+	
+\end{solution}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{\sin(2\pi\sqrt{n^2+1})}{\ln^p n} $,$ (p>0) $
+\end{exercise}
+\begin{solution}
+	\begin{equation*}
+	\begin{split}
+	\sin(2\pi\sqrt{n^2+1})
+	=\sin[2\pi(\sqrt{n^2+1}-n)] 
+	&=\sin\dfrac{2\pi}{\sqrt{n^2+1}+n}\\
+	&\approx\dfrac{2\pi}{\sqrt{n^2+1}+n}
+	\approx\dfrac{\pi}{n}\\
+	\end{split}
+	\end{equation*}
+	\begin{equation*}
+	\Rightarrow\dfrac{\sin(2\pi\sqrt{n^2+1})}{\ln^p n}
+	\approx\dfrac{\pi}{n\ln^p n}
+	\end{equation*}
+	
+	$ p>1 $, 收敛
+	
+	$ p \le 1 $, 发散
+\end{solution}
+\begin{exercise}
+	$ \lim\limits_{n \to \infty} n^p(e^{\frac{1}{n}}-1)a_n=1 $,
+	讨论正项级数$ \displaystyle\sum_{n=1}^{\infty}a_n $的敛散性.
+\end{exercise}
+\begin{solution}
+	$ n^p(e^{\frac{1}{n}}-1)a_n
+	\approx n^{p-1}a_n
+	\to 1 $,$ n \to \infty $
+	$ \Rightarrow a_n \approx \dfrac{1}{n^{p-1}},n \to \infty $
+\end{solution}
+\begin{exercise}
+	设数列$ \{a_n\} $,$ \{b_n\} $满足$ e_{a_n}=a_n+e^{b_n} $,证明:\\
+	
+	(1)若$ a_n>0 $, 则$ b_n>0 $\\
+	
+	(2)若$ a_n>0 $,且$ \displaystyle\sum_{n=1}^{\infty}a_n $收敛, 则$ \displaystyle\sum_{n=1}^{\infty}\dfrac{b_n}{a_n} $收敛
+\end{exercise}
+\begin{solution}
+	(1)$ e^{a_n}=a_n+e^{b_n}>1+a_n \Rightarrow b_n>0 $\\
+	
+	(2)$ \lim\limits_{n \to \infty}\dfrac{b_n}{a_n^2}
+	=\lim\limits_{n \to \infty} \dfrac{\ln(e^{a_n}-a_n)}{a_n^2}
+	=\dfrac{1}{2} $
+\end{solution}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}(1-\frac{1}{\ln n})^n $
+\end{exercise}
+\begin{solution}
+	$ 0<(1-\dfrac{1}{\ln n})^n
+	=e^{n \ln (1-\tfrac{1}{\ln n})}
+	\approx e^{-\tfrac{n}{\ln n}} $\\
+	$  e^{-\tfrac{n}{\ln n}} \le \dfrac{1}{n^2} $
+\end{solution}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{n!}{n^{\sqrt{n}}} $
+\end{exercise}
+\begin{solution}
+	$ \displaystyle\sqrt[n]{a_n}=\dfrac{\sqrt[n]{n!}}{n^{\frac{\sqrt{n}}{n}}} $\\
+	
+	$ \displaystyle n^{\frac{\sqrt{n}}{n}}
+	=e^{\tfrac{\sqrt{n}}{n}\ln n} $\\
+	
+	$ \sqrt[n]{n!}=e^{\tfrac{\ln n!}{n}}
+	\ge e^{\tfrac{(n-1)\ln 2}{n}} $
+\end{solution}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}n^\alpha \beta^n $, $ \alpha,\beta $为实数, $ \beta>0 $
+\end{exercise}
+\begin{solution}
+	$ \displaystyle\lim\limits_{n \to \infty}\sqrt[n]{n^\alpha \beta^n}=\beta $
+	$ 0<\beta<1 $,收敛,$ \beta>1 $发散\\
+	
+	$ \beta=1 $, $ \displaystyle\sum_{n=1}^{\infty}n^\alpha \beta^n
+	=\sum_{n=1}^{\infty}n^\alpha $
+
+\end{solution}
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{a^n}{(1+a)(1+a^2)\cdots(1+a^n)} $, $ a \le 0 $
+\end{exercise}
+\begin{solution}
+	\begin{equation*}
+	\lim\limits_{n \to \infty}\dfrac{\dfrac{a^n}{(1+a)(1+a^2)\cdots(1+a^n)}}{\dfrac{a^{n-1}}{(1+a)(1+a^2)\cdots(1+a^{n-1})}}
+	=\lim\limits_{n \to \infty}\dfrac{a}{1+a^n}
+	=\begin{cases}
+	a,&0<a<1\\
+	\dfrac{1}{2},&a=1\\
+	0,&a>1\\
+	\end{cases}
+	\end{equation*}
+\end{solution}
+\begin{exercise}
+	$ 0<u_1<1 $, $ u_{n+1}=\dfrac{1}{2}u_n(u_n^2+1) $, 讨论$ \displaystyle\sum_{n=1}^{\infty}u_n $敛散性
+\end{exercise}
+\begin{solution}
+	$ 0<u_n<1 $, $ \dfrac{u_{n+1}}{u_n}=\dfrac{1}{2}(u_n^2+1)<1 $\\
+	
+	$ {u_n} $单调递减, 有界\\
+	
+	设$ \lim\limits_{n \to \infty}u_n=A<1 $
+	$ \Rightarrow A=\dfrac{1}{2}A(A^2+1) $
+	$ \Rightarrow A=0 $\\
+	
+	$ \lim\limits_{n \to \infty}\dfrac{u_{n+1}}{u_n}
+	=\lim\limits_{n \to \infty}\dfrac{1}{2}(u_n^2+1)
+	=\dfrac{1}{2} $\\
+	
+	$ \displaystyle\therefore\sum_{n=1}^{\infty}u_n $收敛
+\end{solution}
+
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{e^n n!}{n^n} $
+\end{exercise}
+\begin{solution}
+	$ u_n=\dfrac{e^n n!}{n^n} $\\
+	
+	$ \lim\limits_{n \to \infty} \dfrac{u_n}{u_{n-1}}
+	=\lim\limits_{n \to \infty}\dfrac{e}{(1+\dfrac{1}{n})^n}
+	=1$, 不能用比值判别法\\
+	
+	$ \dfrac{u_n}{u_{n-1}}
+	=\dfrac{e}{(1+\dfrac{1}{n})^n}
+	>1 $, $ \Rightarrow\{u_n\} $递增\\
+	
+	$ \because u_1=e $, $ \therefore \lim\limits_{n \to \infty}u_n \ne 0 $
+\end{solution}
+
+\begin{exercise}
+	$ u_n=\dfrac{(2n-1)!!}{(2n!!)} $,$ \displaystyle\sum_{n=1}^{\infty}(u_n)^3 $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{2+(-1)^n}{2^n} $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{n^{\ln n}}{(\ln n)^n} $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	$ f(x)=\dfrac{1}{1-x-x^2} $, $ \displaystyle\sum_{n=1}^{\infty}\dfrac{n!}{f^{(n)}(0)} $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty} (-1)^n \dfrac{a_1+a_2+\cdots+a_n}{n} $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n}+(-1)^n} $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty} \ln[1+\dfrac{(-1)^n}{n^p}] $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	$ \displaystyle\sum_{n=1}^{\infty} \sin[\pi\sqrt{n^2+a^2}] $,$ a>0 $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\begin{exercise}
+	若$ \lim\limits_{n \to \infty}(a_1+a_2+\cdots+a_n)=S $, 证明\\
+	
+	$ \lim\limits_{n \to \infty}\dfrac{a_1+2a_2+\cdots+na_n}{n}=0 $
+\end{exercise}
+\begin{solution}
+	
+\end{solution}
+
+\end{document}
