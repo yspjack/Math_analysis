@@ -317,7 +317,10 @@
 	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{n^{\ln n}}{(\ln n)^n} $
 \end{exercise}
 \begin{solution}
+	$ \sqrt[n]{\dfrac{n^{\ln n}}{(\ln n)^n}}=\dfrac{n^{\frac{\ln n}{n}}}{\ln n} $
+	$ n^{\frac{\ln n}{n}}=e^{\tfrac{\ln^2 n}{n}} \to e^0=1$\\
 	
+	$ \therefore\displaystyle\sum_{n=1}^{\infty}\dfrac{n^{\ln n}}{(\ln n)^n} $ 收敛
 \end{solution}
 
 \begin{exercise}
@@ -328,11 +331,15 @@
 \end{solution}
 
 \begin{exercise}
-	$ \displaystyle\sum_{n=1}^{\infty} (-1)^n \dfrac{a_1+a_2+\cdots+a_n}{n} $
+	设 $ \{a_n\} $ 单调递减趋于0, 证明: $ \displaystyle\sum_{n=1}^{\infty} (-1)^n \dfrac{a_1+a_2+\cdots+a_n}{n} $ 收敛
 \end{exercise}
-\begin{solution}
+\begin{proof}
+	$ b_n=\dfrac{a_1+a_2+\cdots+a_n}{n} $,则 $ \lim\limits_{n \to \infty}b_n=\lim\limits_{n \to \infty}a_n=0 $\\
 	
-\end{solution}
+	$ b_n-b_{n-1}=\dfrac{(n-1)a_n-(a_1+a_2+\cdots+a_{n-1})}{n(n-1)}<0 $\\
+	
+	$ \displaystyle\sum_{n=1}^{\infty}(-1)^n\dfrac{a_1+a_2+\cdot+a_n}{n} $收敛
+\end{proof}
 
 \begin{exercise}
 	$ \displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n}+(-1)^n} $
