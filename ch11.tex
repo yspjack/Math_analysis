@@ -300,17 +300,25 @@
 \end{solution}
 
 \begin{exercise}
-	$ u_n=\dfrac{(2n-1)!!}{(2n!!)} $,$ \displaystyle\sum_{n=1}^{\infty}(u_n)^3 $
+	设 $ u_n=\dfrac{(2n-1)!!}{(2n!!)} $, 讨论 $ \displaystyle\sum_{n=1}^{\infty}(u_n)^3 $ 敛散性
 \end{exercise}
 \begin{solution}
+	显然 $ 0 < u_n < \dfrac{1}{\sqrt{2n+1}} $\\
 	
+	$ \Rightarrow 0 < u_n^3 < \dfrac{1}{(2n+1)^{\frac{3}{2}}}
+	\approx \dfrac{1}{2\sqrt{2}n^{\frac{3}{2}}} $\\
+	
+	$ \displaystyle\sum_{n=1}^{\infty}(u_n)^3 $ 收敛
 \end{solution}
 
 \begin{exercise}
 	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{2+(-1)^n}{2^n} $
 \end{exercise}
 \begin{solution}
+	$ 0 < \dfrac{2+(-1)^n}{2^n} \le \dfrac{2}{2^n} = \dfrac{1}{2^{n-1}} $\\
 	
+	$ \displaystyle\sum_{n=1}^{\infty}\dfrac{1}{2^{n-1}} $ 收敛,
+	$ \Rightarrow \displaystyle\sum_{n=1}^{\infty}\dfrac{2+(-1)^n}{2^n} $ 收敛
 \end{solution}
 
 \begin{exercise}
@@ -324,7 +332,7 @@
 \end{solution}
 
 \begin{exercise}
-	$ f(x)=\dfrac{1}{1-x-x^2} $, $ \displaystyle\sum_{n=1}^{\infty}\dfrac{n!}{f^{(n)}(0)} $
+	设 $ f(x)=\dfrac{1}{1-x-x^2} $, 证明 $ \displaystyle\sum_{n=1}^{\infty}\dfrac{n!}{f^{(n)}(0)} $ 收敛
 \end{exercise}
 \begin{solution}
 	
@@ -345,18 +353,30 @@
 	$ \displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n}+(-1)^n} $
 \end{exercise}
 \begin{solution}
+	$ \dfrac{(-1)^n}{\sqrt{n}+(-1)^n}
+	=\dfrac{(-1)^n[\sqrt{n}+(-1)^n]}{n-1}
+	=\dfrac{(-1)^n\sqrt{n}}{n-1}+\dfrac{1}{n-1} $\\
 	
+	$ \displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n}+(-1)^n} $ 发散
 \end{solution}
 
 \begin{exercise}
-	$ \displaystyle\sum_{n=1}^{\infty} \ln[1+\dfrac{(-1)^n}{n^p}] $
+	$ \displaystyle\sum_{n=1}^{\infty} \ln\left[1+\dfrac{(-1)^n}{n^p}\right] $
 \end{exercise}
 \begin{solution}
+	$ \ln\left[1+\dfrac{(-1)^n}{n^p}\right]
+	=\dfrac{(-1)^n}{n^p}-\dfrac{1}{2 n^{2p}}+o(\dfrac{1}{n^{2p}}) $\\
+	
+	(1) $ p>1 $, $ \displaystyle\sum_{n=1}^{\infty} \ln\left[1+\dfrac{(-1)^n}{n^p}\right] $ 绝对收敛\\
+	
+	(2) $ \dfrac{1}{2} < p \le 1 $, $ \displaystyle\sum_{n=1}^{\infty} \ln\left[1+\dfrac{(-1)^n}{n^p}\right] $ 条件收敛\\
+	
+	(3) $ p \le \dfrac{1}{2} $, $ \displaystyle\sum_{n=1}^{\infty} \ln\left[1+\dfrac{(-1)^n}{n^p}\right] $ 发散
 	
 \end{solution}
 
 \begin{exercise}
-	$ \displaystyle\sum_{n=1}^{\infty} \sin[\pi\sqrt{n^2+a^2}] $,$ a>0 $
+	$ \displaystyle\sum_{n=1}^{\infty} \sin\left(\pi\sqrt{n^2+a^2}\right) $,$ a>0 $
 \end{exercise}
 \begin{solution}
 	
