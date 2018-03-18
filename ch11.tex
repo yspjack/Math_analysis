@@ -335,7 +335,16 @@
 	设 $ f(x)=\dfrac{1}{1-x-x^2} $, 证明 $ \displaystyle\sum_{n=1}^{\infty}\dfrac{n!}{f^{(n)}(0)} $ 收敛
 \end{exercise}
 \begin{solution}
+	$ f(0)=1 $, $ f'(0)=1 $, $ (1-x-x^2)f(x)=1 $\\
 	
+	求n阶导数 $ \dfrac{f^{{n}}(0)}{n!}=\dfrac{f^{(n-1)}(0)}{(n-1)!}+\dfrac{f^{(n-2)}(0)}{(n-2)!} $\\
+	
+	$ a_n=\dfrac{f^{(n)}(0)}{n!} $, $ a_n=a_{n-1}+a_{n-2} $\\
+	
+	设 $ a_0=a_1=1 $, $ \dfrac{3}{2}a_1 \le a_2 \le 2a_1 $, 由归纳法可证 $ \dfrac{3}{2}a_{n-1} \le a_n \le 2a_{n-1} $\\
+	
+	$ \dfrac{n!}{f^{(n)}(0)}=\dfrac{1}{a_n} \le \dfrac{2}{3}\dfrac{1}{a_{n-1}} \le \cdots \le (\dfrac{2}{3})^n $
+	$ \Rightarrow \displaystyle\sum_{n=1}^{\infty} \dfrac{n!}{f^{(n)}(0)} $收敛
 \end{solution}
 
 \begin{exercise}
@@ -379,7 +388,16 @@
 	$ \displaystyle\sum_{n=1}^{\infty} \sin\left(\pi\sqrt{n^2+a^2}\right) $,$ a>0 $
 \end{exercise}
 \begin{solution}
+	$$ \begin{aligned}
+	\sin\left[\pi\sqrt{n^2+a^2}\right]&=(-1)^n\sin\left[\pi(\sqrt{n^2+a^2}-n)\right] \\
+	&=(-1)^n\sin\left[\pi\dfrac{a^2}{\sqrt{n^2+a^2}+n}\right]
+	\approx (-1)^n\dfrac{\pi a^2}{2n}
+	\end{aligned} $$
+	$ \Rightarrow\displaystyle\sum_{n=1}^{\infty} \left|\sin\left(\pi\sqrt{n^2+a^2}\right)\right| $收敛\\
 	
+	$ \because \{\sin\left(\pi\sqrt{n^2+a^2}\right)\} $\\
+	
+	$ \therefore\displaystyle\sum_{n=1}^{\infty} \sin\left(\pi\sqrt{n^2+a^2}\right) $ 条件收敛
 \end{solution}
 
 \begin{exercise}
@@ -388,7 +406,16 @@
 	$ \lim\limits_{n \to \infty}\dfrac{a_1+2a_2+\cdots+na_n}{n}=0 $
 \end{exercise}
 \begin{solution}
-	
+	令 $ S_k=a_1+a_2+\cdots+a_k $, 则$ \lim\limits_{n \to \infty} S_n=S $\\
+	\begin{equation*}
+	\begin{aligned}
+		&\lim\limits_{n \to \infty}\dfrac{a_1+2a_2+\cdots+na_n}{n} \\
+		=& \lim\limits_{n \to \infty}\dfrac{S_2-S_1+2(S_3-S_2)+\cdots+n(S_n-S_{n-1})}{n} \\
+		=& \lim\limits_{n \to \infty}\dfrac{nS_n-(S_1+S_2+\cdots+S_{n-1})}{n} \\
+		=& \lim\limits_{n \to \infty} \left(S_n-\dfrac{n-1}{n}\cdot\dfrac{S_1+S_2+\cdots+S_{n-1}}{n-1}\right)\\
+		=& 0
+	\end{aligned}
+	\end{equation*}
 \end{solution}
 
 \end{document}
