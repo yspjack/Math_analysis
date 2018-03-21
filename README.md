@@ -11,3 +11,9 @@ Chapter 12: Function series
 
 - [x] Chapter 11
 - [ ] Chapter 12
+
+## Important Notes
+
+The line ending is **CR+LF**.
+
+The encoding is **UTF-8**.
